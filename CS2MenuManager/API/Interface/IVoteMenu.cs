@@ -50,6 +50,13 @@ public interface IVoteMenu
     /// </summary>
     /// <param name="time">The duration of the vote in seconds.</param>
     void DisplayVoteToAll(int time);
+
+    /// <summary>
+    /// Displays the vote to target team all players.
+    /// </summary>
+    /// <param name="team">Team side.</param>
+    /// <param name="time">The duration of the vote in seconds.</param>
+    void DisplayVoteToTeamAll(string team, int time);
 }
 
 /// <summary>

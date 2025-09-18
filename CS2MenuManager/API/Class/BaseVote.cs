@@ -56,6 +56,12 @@ public abstract class BaseVote(string title, string details, YesNoVoteResult res
     /// </summary>
     /// <param name="time">The duration of the vote in seconds.</param>
     public abstract void DisplayVoteToAll(int time);
+    /// <summary>
+    /// Displays the vote to target team all players.
+    /// </summary>
+    /// <param name="team">Team side.</param>
+    /// <param name="time">The duration of the vote in seconds.</param>
+    public abstract void DisplayVoteToTeamAll(string team, int time);
 }
 
 /// <summary>

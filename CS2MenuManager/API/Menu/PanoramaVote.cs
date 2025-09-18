@@ -25,6 +25,22 @@ public class PanoramaVote(string title, string details, YesNoVoteResult resultCa
         List<CCSPlayerController> players = [.. Utilities.GetPlayers().Where(player => !player.IsBot)];
         OpenVoteMenu(players, this, (p, m) => new PanoramaVoteInstance(p, m));
     }
+
+    /// <summary>
+    /// Displays the vote to target team all players.
+    /// </summary>
+    /// <param name="team">The duration of the vote in seconds.</param>
+    /// <param name="time">The duration of the vote in seconds.</param>
+    public override void DisplayVoteToTeamAll(string team, int time)
+    {
+        VoteTime = time;
+        List<CCSPlayerController> players = [];
+        if (team.Equals("CT"))
+            players = [.. Utilities.GetPlayers().Where(player => !player.IsBot && player.Team == CsTeam.CounterTerrorist)];
+        else if (team.Equals("T"))
+            players = [.. Utilities.GetPlayers().Where(player => !player.IsBot && player.Team == CsTeam.Terrorist)];
+        OpenVoteMenu(players, this, (p, m) => new PanoramaVoteInstance(p, m));
+    }
 }
 
 /// <summary>
